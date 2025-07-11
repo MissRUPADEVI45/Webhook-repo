@@ -38,7 +38,10 @@ def github_webhook():
 
     # Respond to GitHub with a success message
     return jsonify({"status": "success"}), 200
-
+@app.route('/events')
+def show_events():
+    events = list(collection.find().sort("received_at", -1))
+    return render_template("Assignment.html", events=events)   
 #  Run the Flask app
 if __name__ == '__main__':
     app.run(port=5000)  # Localhost port
