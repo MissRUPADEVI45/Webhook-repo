@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # MongoDB connection setup
-MONGO_URI = "mongodb+srv://<username>:<password>@cluster.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGO_URI = "mongodb+srv://missrupadevi0450:RUPADEVI@45@cluster0.3874lmx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = pymongo.MongoClient(MONGO_URI)
 db = client['github_events']              # Database name
 collection = db['events']                 # Collection to store GitHub events
