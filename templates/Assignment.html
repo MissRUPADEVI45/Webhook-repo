@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Webhook Events</title>
+
+  <style>
+    /* styling the page */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: lightgray;
+    }
+    h1 {color: dimgray;}
+
+    /*  styling an event card */
+    .event {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+
+  <script>
+    // Refresh the page every 15 seconds to show the latest events
+    setInterval(function() {
+        window.location.reload();
+     }, 15000); 
+  </script>
+</head>
+
+<body>
+  <h1>assignment webhook events</h1>
+  <!--Loop through all events and display each one -->
+  {% for event in events %}
+    <div class="event">
+      <strong>Event:</strong> {{ event.event_type }}<br>
+      <strong>Time:</strong> {{ event.received_at.strftime("%d %b %Y - %I:%M %p") }}<br>
+      <strong>Details:</strong> {{ event.data }}
+    </div>
+  {% else %}
+    <!-- If no events are received yet, show this message -->
+    <p>No events received yet.</p>
+  {% endfor %}
+
+</body>
+</html>
